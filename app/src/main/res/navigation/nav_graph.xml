@@ -67,6 +67,20 @@
         android:id="@+id/catDetailFragment"
         android:name="dev.hankli.navigationcomponent.CatDetailFragment"
         android:label="fragment_cat_detail"
-        tools:layout="@layout/fragment_cat_detail" />
+        tools:layout="@layout/fragment_cat_detail">
+
+        <argument
+            android:name="name"
+            android:defaultValue=""
+            app:argType="string" />
+
+        <argument
+            android:name="age"
+            android:defaultValue="0"
+            app:argType="integer" />
+
+        <deepLink app:uri="www.hankdev.com/?name={name}&amp;age={age}" />
+
+    </fragment>
 
 </navigation>
