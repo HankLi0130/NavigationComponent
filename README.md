@@ -76,3 +76,15 @@
 > 1. Declare a "name"Args variable by navArgs()
 > 2. Using the variable to get arguments
 
+## Part 3 - Deep link
+
+### explicit
+
+- PendingIntent
+
+### implicit
+
+1. Select a destination you want
+2. Add arguments
+3. Add deep links (ex: www.hankdev.com/?name={name}&age={age})
+4. Add nav-graph tag in activity in AndroidManifests.xml
