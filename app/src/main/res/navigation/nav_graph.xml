@@ -18,6 +18,12 @@
         <action
             android:id="@+id/action_mainFragment_to_catFragment"
             app:destination="@id/catFragment" />
+        <action
+            android:id="@+id/action_mainFragment_to_welcomeFragment"
+            app:destination="@id/welcomeFragment"
+            app:launchSingleTop="true"
+            app:popUpTo="@id/mainFragment"
+            app:popUpToInclusive="true" />
 
     </fragment>
 
@@ -81,6 +87,18 @@
 
         <deepLink app:uri="www.hankdev.com/?name={name}&amp;age={age}" />
 
+    </fragment>
+
+    <fragment
+        android:id="@+id/welcomeFragment"
+        android:name="dev.hankli.navigationcomponent.WelcomeFragment"
+        android:label="WelcomeFragment"
+        tools:layout="@layout/fragment_welcome">
+        <action
+            android:id="@+id/action_welcomeFragment_to_mainFragment"
+            app:destination="@id/mainFragment"
+            app:popUpTo="@id/welcomeFragment"
+            app:popUpToInclusive="true" />
     </fragment>
 
 </navigation>
