@@ -8,12 +8,21 @@ import kotlinx.android.synthetic.main.fragment_welcome.*
 
 class WelcomeFragment : Fragment(R.layout.fragment_welcome) {
 
+    private lateinit var mainActivity: MainActivity
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        mainActivity = requireActivity() as MainActivity
+
         view_btn_ok.setOnClickListener {
-            (requireActivity() as MainActivity).hasCompletedWelcome = true
-            findNavController().navigate(WelcomeFragmentDirections.actionWelcomeFragmentToMainFragment())
+            mainActivity.hasCompletedWelcome = true
+            // navigateToMain()
+            mainActivity.restart()
         }
+    }
+
+    private fun navigateToMain() {
+        findNavController().navigate(WelcomeFragmentDirections.actionWelcomeFragmentToMainFragment())
     }
 }

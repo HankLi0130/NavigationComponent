@@ -1,5 +1,6 @@
 package dev.hankli.navigationcomponent
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.NavController
@@ -34,8 +35,26 @@ class MainActivity : AppCompatActivity(R.layout.activity_main) {
         }
 
         if (!hasCompletedWelcome) {
-            navController.navigate(MainFragmentDirections.actionMainFragmentToWelcomeFragment())
+            //navController.navigate(R.id.welcomeFragment)
+            resetStartDestination()
         }
+    }
+
+    private fun navigateToWelcome() {
+        findNavController().navigate(MainFragmentDirections.actionMainFragmentToWelcomeFragment())
+    }
+
+    private fun resetStartDestination() {
+        val navController = findNavController()
+        val graph = navController.graph
+        graph.startDestination = R.id.welcomeFragment
+        navController.graph = graph
+    }
+
+    fun restart() {
+        val intent = Intent(this, MainActivity::class.java)
+        startActivity(intent)
+        finish()
     }
 
     private fun findNavController(): NavController {
